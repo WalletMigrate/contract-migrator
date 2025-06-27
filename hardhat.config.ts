@@ -34,10 +34,19 @@ const config: HardhatUserConfig = {
       url: `https://testnet.evm.nodes.onflow.org/`,
       accounts: [PRIVATE_KEY],
     },
+    alfajores: {
+      url: `https://alfajores-forno.celo-testnet.org`,
+      accounts: [PRIVATE_KEY],
+    },
+    celo: {
+      url: `https://celo-mainnet.infura.io/v3/${INFURA_API_KEY}`,
+      accounts: [PRIVATE_KEY],
+    }
   },
   etherscan: {
     apiKey: {
       'evm-on-flow': ETHERSCAN_API_KEY,
+      'celo-alfajores': ETHERSCAN_API_KEY,
     },
     customChains: [
       {
@@ -46,6 +55,14 @@ const config: HardhatUserConfig = {
         urls: {
           apiURL: "https://evm.flowscan.io/api",
           browserURL: "https://evm.flowscan.io"
+        }
+      },
+      {
+        network: "celo-alfajores",
+        chainId: 44787,
+        urls: {
+          apiURL: "https://celo-alfajores.blockscout.com/api",
+          browserURL: "https://celo-alfajores.blockscout.com"
         }
       }
     ]
